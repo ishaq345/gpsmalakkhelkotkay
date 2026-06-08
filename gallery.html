@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گیلری - Government Primary School No.1 Malak Khel Kotkay</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Slideshow Styles */
+        .gallery-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .slideshow-wrapper {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 500px;
+            background-color: #f0f0f0;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navigation Buttons */
+        .slide-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 100;
+        }
+
+        .slide-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Dots/Indicators */
+        .dots-container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #667eea;
+        }
+
+        .dot:hover {
+            background-color: #764ba2;
+        }
+
+        /* Counter */
+        .slide-counter {
+            text-align: center;
+            padding: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Thumbnail Selector */
+        .thumbnails-section {
+            padding: 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .thumbnails-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .thumbnail {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            overflow: hidden;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail:hover {
+            border-color: #667eea;
+        }
+
+        .thumbnail.active {
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                height: 300px;
+            }
+
+            .gallery-title {
+                font-size: 24px;
+            }
+
+            .slide-button {
+                padding: 10px 15px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="background-color: #333; padding: 15px; text-align: center;">
+        <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">🏠 ہوم</a>
+        <a href="about.html" style="color: white; margin: 0 15px; text-decoration: none;">ℹ️ تعارف</a>
+        <a href="gallery.html" style="color: #667eea; margin: 0 15px; text-decoration: none; font-weight: bold;">📸 گیلری</a>
+        <a href="teachers.html" style="color: white; margin: 0 15px; text-decoration: none;">👨‍🏫 اساتذہ</a>
+        <a href="admission.html" style="color: white; margin: 0 15px; text-decoration: none;">📝 داخلہ</a>
+    </nav>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <h1 class="gallery-title">📸 اسکول کی گیلری</h1>
+
+        <!-- Slideshow -->
+        <div class="slideshow-wrapper">
+            <!-- Slides -->
+            <div class="slide active">
+                <div class="slide-placeholder">تصویر 1: اسکول کی عمارت</div>
+            </div>
+            <div class="slide">
+                <div class="slide-placeholder">تصویر 2: کلاس رومز</div>
+            </div>
+            <div class="slide">
+                <div class="slide-placeholder">تصویر 3: کھیل کا میدان</div>
+            </div>
+            <div class="slide">
+                <div class="slide-placeholder">تصویر 4: لائبریری</div>
+            </div>
+            <div class="slide">
+                <div class="slide-placeholder">تصویر 5: تقریب</div>
+            </div>
+            <div class="slide">
+                <div class="slide-placeholder">تصویر 6: سالانہ میل</div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button class="slide-button prev" onclick="changeSlide(-1)">❮</button>
+            <button class="slide-button next" onclick="changeSlide(1)">❯</button>
+        </div>
+
+        <!-- Slide Counter -->
+        <div class="slide-counter">
+            تصویر <span id="currentSlide">1</span> کل <span id="totalSlides">6</span> میں سے
+        </div>
+
+        <!-- Dots/Indicators -->
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+
+        <!-- Description -->
+        <div style="background: white; padding: 20px; margin-top: 20px; border-radius: 10px;">
+            <h3 style="color: #333;">📝 تصویروں کی تفصیل</h3>
+            <p id="slideDescription" style="color: #666; line-height: 1.6;">
+                Government Primary School No.1 Malak Khel Kotkay کی یہ تصویریں اسکول کی سرگرمیوں اور سہولیات کو ظاہر کرتی ہیں۔
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 50px;">
+        <p>© 2026 Government Primary School No.1 Malak Khel Kotkay</p>
+        <p>تمام حقوق محفوظ ہیں</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        const totalSlides = 6;
+
+        // Slide descriptions
+        const descriptions = {
+            1: "تصویر 1: اسکول کی خوبصورت عمارت اور اس کا باہری منظر۔",
+            2: "تصویر 2: جدید کلاس رومز جہاں بچے تعلیم حاصل کرتے ہیں۔",
+            3: "تصویر 3: کھیل کا میدان جہاں بچے کھیل کود کا شوق پورا کرتے ہیں۔",
+            4: "تصویر 4: لائبریری جہاں بچے کتابوں کا مطالعہ کرتے ہیں۔",
+            5: "تصویر 5: سالانہ تقریب میں بچوں کی شرکت۔",
+            6: "تصویر 6: سالانہ میل میں شرکت اور پروگرام۔"
+        };
+
+        // Change slide function
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        // Current slide function
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        // Show slide function
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // Show current slide
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+
+            // Update counter
+            document.getElementById('currentSlide').textContent = slideIndex;
+            document.getElementById('totalSlides').textContent = totalSlides;
+
+            // Update description
+            document.getElementById('slideDescription').textContent = descriptions[slideIndex];
+        }
+
+        // Auto-advance slideshow every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>

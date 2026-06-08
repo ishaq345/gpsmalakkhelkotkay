@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | GPS No.1 MALAK KHEL KOTKAY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .stats-flex { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin: 50px 0; }
+        .stat-glow { background: white; border-radius: 28px; padding: 28px 20px; text-align: center; flex: 1; min-width: 160px; box-shadow: 0 25px 40px -12px rgba(0,0,0,0.08); border-bottom: 4px solid #e67e22; transition: 0.2s; }
+        .stat-glow i { font-size: 2.5rem; color: #e67e22; margin-bottom: 12px; }
+        .stat-glow h3 { font-size: 2.2rem; font-weight: 800; }
+        @media (max-width:600px){ .stat-glow h3{ font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+<nav class="navbar"><div class="logo-flex"><img src="logo.png" class="logo-img" alt="logo"><span class="logo-text">GPS NO.1 MALAK KHEL KOTKAY</span></div><div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div><ul class="nav-links" id="navMenu"><li><a href="index.html">Home</a></li><li class="active"><a href="about.html">About Us</a></li><li><a href="teachers.html">Teachers</a></li><li><a href="admission.html">Admissions</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+<div class="hero-global"><h1>About Our Institution</h1><p>Excellence in primary education since 1986</p></div>
+<main class="section-container">
+    <div class="welcome-box"><h3>🏫 Our Legacy & Mission</h3><p>Government Primary School No.1 Malak Khel Kotkay, Shangla is a beacon of learning. We focus on holistic development – academic brilliance, character building, and co-curricular excellence. Under the guidance of qualified teachers, we provide a safe, joyful environment.</p></div>
+    <div class="stats-flex">
+        <div class="stat-glow"><i class="fas fa-user-graduate"></i><h3><span class="counter" data-target="620">0</span>+</h3><p>Active Students</p></div>
+        <div class="stat-glow"><i class="fas fa-chalkboard-user"></i><h3><span class="counter" data-target="11">0</span></h3><p>Expert Teachers</p></div>
+        <div class="stat-glow"><i class="fas fa-calendar-alt"></i><h3><span class="counter" data-target="39">0</span></h3><p>Years of Trust</p></div>
+        <div class="stat-glow"><i class="fas fa-trophy"></i><h3><span class="counter" data-target="5000">0</span>+</h3><p>Alumni Network</p></div>
+    </div>
+</main>
+<footer><p>© 2026 GPS No.1 Malak Khel Kotkay</p></footer>
+<script>
+    function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
+    const counters = document.querySelectorAll('.counter');
+    const startCount = () => { counters.forEach(c => { const target = +c.dataset.target; let current = 0; const inc = Math.ceil(target/60); const update = () => { current += inc; if(current >= target) c.innerText = target; else { c.innerText = current; setTimeout(update, 25); } }; update(); }); };
+    window.addEventListener('load', startCount);
+</script>
+</body>
+</html>

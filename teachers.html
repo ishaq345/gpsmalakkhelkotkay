@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Our Elite Faculty | GPS No.1 Malak Khel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Premium Teacher Card Enhancements */
+        .teachers-hero-premium {
+            background: linear-gradient(125deg, #0b1c2a 0%, #1e3a4d 100%);
+            padding: 70px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .teachers-hero-premium h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .teachers-hero-premium p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .teacher-grid-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 35px;
+            margin: 50px auto;
+            max-width: 1400px;
+            padding: 0 24px;
+        }
+        .teacher-card-premium {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 28px 20px 32px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(230, 126, 34, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .teacher-card-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 40px;
+            padding: 2px;
+            background: linear-gradient(135deg, #e67e22, #f39c12);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        .teacher-card-premium:hover::before {
+            opacity: 1;
+        }
+        .teacher-card-premium:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 45px -15px rgba(230, 126, 34, 0.25);
+            border-color: #e67e22;
+        }
+        .teacher-img-premium {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 18px;
+            background: linear-gradient(145deg, #f8f9fc, #eef2f8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 12px 22px -8px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .teacher-card-premium:hover .teacher-img-premium {
+            border-color: #e67e22;
+            transform: scale(1.02);
+        }
+        .teacher-img-premium img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .teacher-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 10px 0 5px;
+            color: #1e293b;
+        }
+        .teacher-badge {
+            display: inline-block;
+            background: #fff1e6;
+            color: #e67e22;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin: 12px 0 10px;
+            text-transform: uppercase;
+        }
+        .headmaster-badge {
+            background: linear-gradient(95deg, #e67e22, #d35400);
+            color: white;
+            box-shadow: 0 4px 12px rgba(230,126,34,0.3);
+        }
+        .teacher-qualif {
+            font-size: 0.85rem;
+            color: #2c3e50;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-top: 1px solid #eef2f8;
+            padding-top: 18px;
+            margin-top: 16px;
+        }
+        .qualif-item {
+            background: #f8fafc;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+        .qualif-item i {
+            color: #e67e22;
+            margin-right: 6px;
+        }
+        .teacher-experience {
+            font-size: 0.8rem;
+            color: #475569;
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .teacher-experience span i {
+            color: #f1c40f;
+        }
+        @media (max-width: 680px) {
+            .teacher-grid-premium { gap: 24px; padding: 0 16px; }
+            .teacher-card-premium { padding: 20px 16px; }
+            .teacher-img-premium { width: 100px; height: 100px; }
+            .teacher-name { font-size: 1.25rem; }
+        }
+        /* section fade in */
+        .fade-up {
+            animation: fadeUp 0.6s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-flex">
+        <img src="logo.png" class="logo-img" alt="School Logo" onerror="this.src='https://placehold.co/45x45?text=GPS'">
+        <span class="logo-text">GPS NO.1 MALAK KHEL KOTKAY</span>
+    </div>
+    <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="teachers.html">Teachers</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="teachers-hero-premium">
+    <h1>📚 Meet Our Mentors</h1>
+    <p>Dedicated, Highly Qualified & Passionate Educators</p>
+    <div style="margin-top: 20px;"><i class="fas fa-chalkboard-user fa-2x" style="opacity:0.7;"></i></div>
+</div>
+
+<main>
+    <div class="teacher-grid-premium" id="teacherGrid">
+        <!-- Head Master Card -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="images/jehan_alam.jpg" alt="Jehan Alam" onerror="this.src='https://placehold.co/130x130?text=HM'"></div>
+            <div class="teacher-name">Mr. Jehan Alam</div>
+            <div class="teacher-badge headmaster-badge"><i class="fas fa-crown"></i> Head Master</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-graduation-cap"></i> M.A, B.Ed</span><span class="qualif-item"><i class="fas fa-award"></i> 22+ Years</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-calendar-alt"></i> Leadership Excellence</span></div>
+        </div>
+        <!-- Teacher 2 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="images/shah_faisal.jpg" alt="Shah Faisal" onerror="this.src='https://placehold.co/130x130?text=SF'"></div>
+            <div class="teacher-name">Mr. Shah Faisal</div>
+            <div class="teacher-badge">Senior PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-globe"></i> M.Sc Pak Studies</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> M.Ed</span></div>
+            <div class="teacher-experience"><span><i class="far fa-star"></i> Expert in Social Studies</span></div>
+        </div>
+        <!-- Teacher 3 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="ishaq.jpg" alt="Ghulam Ishaq" onerror="this.src='https://placehold.co/130x130?text=GI'"></div>
+            <div class="teacher-name">Mr. Ghulam Ishaq</div>
+            <div class="teacher-badge">Senior PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-flask"></i> M.Sc Chemistry</span><span class="qualif-item"><i class="fas fa-certificate"></i> M.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-microscope"></i> Science Specialist</span></div>
+        </div>
+        <!-- Teacher 4 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="images/iqbal_qasim.jpg" alt="Iqbal Qasim" onerror="this.src='https://placehold.co/130x130?text=IQ'"></div>
+            <div class="teacher-name">Mr. Iqbal Qasim</div>
+            <div class="teacher-badge">SPST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-language"></i> M.A Pashto</span><span class="qualif-item"><i class="fas fa-book"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-feather-alt"></i> Language Expert</span></div>
+        </div>
+        <!-- Teacher 5 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="images/habib_ahmad.jpg" alt="Habib Ahmad" onerror="this.src='https://placehold.co/130x130?text=HA'"></div>
+            <div class="teacher-name">Mr. Habib Ahmad</div>
+            <div class="teacher-badge">SPST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-mosque"></i> M.A Islamiat</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-hands-helping"></i> Islamic Studies</span></div>
+        </div>
+        <!-- Teacher 6 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="images/jan_muhammad.jpg" alt="Jan Muhammad" onerror="this.src='https://placehold.co/130x130?text=JM'"></div>
+            <div class="teacher-name">Mr. Jan Muhammad</div>
+            <div class="teacher-badge">PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-calculator"></i> BS Mathematics</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-chart-line"></i> Logic & Numeracy</span></div>
+        </div>
+        <!-- Teacher 7 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="amjad.jpg" alt="Amjad Ali" onerror="this.src='https://placehold.co/130x130?text=AA'"></div>
+            <div class="teacher-name">Mr. Amjad Ali</div>
+            <div class="teacher-badge">PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-atom"></i> BS Physics</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-microchip"></i> Science & Tech</span></div>
+        </div>
+        <!-- Teacher 8 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="saddam.jpg" alt="Saddam Hussain" onerror="this.src='https://placehold.co/130x130?text=SH'"></div>
+            <div class="teacher-name">Mr. Saddam Hussain</div>
+            <div class="teacher-badge">PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-dna"></i> M.Phil Zoology</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-leaf"></i> Biology Expert</span></div>
+        </div>
+        <!-- Teacher 9 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="altaf.jpg" alt="Altaf Hussain" onerror="this.src='https://placehold.co/130x130?text=AH'"></div>
+            <div class="teacher-name">Mr. Altaf Hussain</div>
+            <div class="teacher-badge">PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-seedling"></i> M.Phil Botany</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-flask"></i> Environmental Science</span></div>
+        </div>
+        <!-- Teacher 10 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="images/sher_zaman.jpg" alt="Sher Zaman" onerror="this.src='https://placehold.co/130x130?text=SZ'"></div>
+            <div class="teacher-name">Mr. Sher Zaman</div>
+            <div class="teacher-badge">PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-mosque"></i> M.A Islamiat</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-heart"></i> Moral Education</span></div>
+        </div>
+        <!-- Teacher 11 -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="matiurrahman.jpg" alt="Mati ur Rahman" onerror="this.src='https://placehold.co/130x130?text=MR'"></div>
+            <div class="teacher-name">Mr. Mati ur Rahman</div>
+            <div class="teacher-badge">PST</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-mosque"></i> M.A Islamiat</span><span class="qualif-item"><i class="fas fa-chalkboard"></i> B.Ed</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-pray"></i> Quran & Tajweed</span></div>
+        </div>
+        <!-- Facilitator -->
+        <div class="teacher-card-premium fade-up">
+            <div class="teacher-img-premium"><img src="javed.jpg" alt="Javed Khan" onerror="this.src='https://placehold.co/130x130?text=JK'"></div>
+            <div class="teacher-name">Mr. Javed Khan</div>
+            <div class="teacher-badge">Facilitator</div>
+            <div class="teacher-qualif"><span class="qualif-item"><i class="fas fa-hands-helping"></i> Student Support</span><span class="qualif-item"><i class="fas fa-smile"></i> Matric</span></div>
+            <div class="teacher-experience"><span><i class="fas fa-bicycle"></i> Sports & Activities</span></div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Govt Primary School No.1 Malak Khel Kotkay | Inspired by Excellence</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('navMenu').classList.toggle('active');
+    }
+    // Add fade-up class with delay for smooth entrance
+    const cards = document.querySelectorAll('.teacher-card-premium');
+    cards.forEach((card, idx) => {
+        card.style.animation = `fadeUp 0.5s ease-out ${idx * 0.03}s forwards`;
+        card.style.opacity = '0';
+        card.style.animationFillMode = 'forwards';
+    });
+</script>
+</body>
+</html>
